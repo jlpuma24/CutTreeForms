@@ -1,0 +1,1895 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".activities.MainActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/toolbarColor" />
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/limpiaductos"
+                android:layout_margin="5dp"
+                android:id="@+id/imageViewLogo"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:textColor="@android:color/black"
+                android:id="@+id/textViewTitle"
+                android:layout_gravity="center_horizontal" />
+
+            <View style="@style/DividerHorizontal"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/contratista"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@android:color/black"
+                                android:id="@+id/textViewContratista" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/limpiaductos"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textColor="@android:color/black"
+                                android:id="@+id/textViewLimpiaDuctos" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View style="@style/DividerHorizontal"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center_horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/contrato"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:id="@+id/textViewContrato" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/nro_contrato"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:layout_marginLeft="3dp"
+                            android:textColor="@android:color/black"
+                            android:id="@+id/editTextContrato" />
+                    </LinearLayout>
+
+                    <View style="@style/DividerHorizontal"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@color/lightGray"
+                        android:layout_gravity="center_horizontal" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/datosCuadrilla"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:id="@+id/textViewDatosCuadrilla" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical" android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/consecutivo"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewConsecutivo" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:ems="10"
+                                    android:id="@+id/editTextConsecutivo" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/movil"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewMovil" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:singleLine="true"
+                                    android:textColor="@android:color/black"
+                                    android:maxLines="1"
+                                    android:id="@+id/editTextMovil" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/nro_orden"
+                                    android:id="@+id/textViewNroOrden" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:textColor="@android:color/black"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:maxLength="6"
+                                    android:ems="10"
+                                    android:id="@+id/editTextNroOrden" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/nro_reporte"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewNroReporte" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:singleLine="true"
+                                    android:textColor="@android:color/black"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:maxLength="7"
+                                    android:id="@+id/editTextNroReporte" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/cuadrillero"
+                                    android:id="@+id/textViewCuadrillero" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPersonName"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:maxLength="70"
+                                    android:textColor="@android:color/black"
+                                    android:ems="10"
+                                    android:id="@+id/editTextCuadrillero" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/operario_uno"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewOperarioUno" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPersonName"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:ems="10"
+                                    android:id="@+id/editTextOperarioUno" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/operario_dos"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewOperarioDos" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPersonName"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/editTextOperarioDos" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/operario_tres"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewOperarioTres" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPersonName"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:ems="10"
+                                    android:id="@+id/editTextOperarioTres" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/operario_cuatro"
+                                    android:id="@+id/textViewOperarioCuatro" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:inputType="textPersonName"
+                                    android:textColor="@android:color/black"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:id="@+id/editTextOperarioCuatro" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"
+                                android:text="@string/operario_cinco"
+                                android:id="@+id/textViewOperarioCinco" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:inputType="textPersonName"
+                                android:textColor="@android:color/black"
+                                android:singleLine="true"
+                                android:maxLines="1"
+                                android:ems="10"
+                                android:id="@+id/editTextOperarioCinco" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View style="@style/DividerHorizontal"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"
+                                android:text="@string/operario_seis"
+                                android:id="@+id/textViewOperarioSeis" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:inputType="textPersonName"
+                                android:textColor="@android:color/black"
+                                android:singleLine="true"
+                                android:maxLines="1"
+                                android:ems="10"
+                                android:id="@+id/editTextOperarioSeis" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <View style="@style/DividerHorizontal"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@color/lightGray"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/datosUbicacion"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:id="@+id/textViewDatosUbicacion" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical" android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/fecha"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewFecha" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="date"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:ems="10"
+                                    android:id="@+id/editTextFecha" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/hora_salida"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewHoraSalida" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:singleLine="true"
+                                    android:inputType="time"
+                                    android:textColor="@android:color/black"
+                                    android:maxLines="1"
+                                    android:id="@+id/editTextHoraSalida" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/hora_inicio"
+                                    android:id="@+id/textViewHoraInicio" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="time"
+                                    android:textColor="@android:color/black"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:id="@+id/editTextHoraInicio" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/hora_fin"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewHoraFin" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="time"
+                                    android:singleLine="true"
+                                    android:textColor="@android:color/black"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:id="@+id/editTextHoraFin" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/hora_llegada"
+                                    android:id="@+id/textViewHoraLlegada" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="time"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:ems="10"
+                                    android:id="@+id/editTextHoraLlegada" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/municipio"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewMunicipio" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <Spinner
+                                    android:id="@+id/spinnerMunicipios"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="50dp"
+                                    android:drawSelectorOnTop="true"
+                                    android:entries="@array/municipios" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/zona"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewZona" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/editTextZona" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/direccion"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewDireccion" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:ems="10"
+                                    android:id="@+id/editTextDireccion" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/barrio_vereda"
+                                    android:id="@+id/textViewBarrioVereda" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@android:color/black"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:id="@+id/editTextBarrioVereda" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/circuito"
+                                    android:id="@+id/textViewCircuito" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:id="@+id/editTextCircuito" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/tension"
+                                    android:id="@+id/textViewTension" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <Spinner
+                                    android:id="@+id/spinnerTensiones"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="50dp"
+                                    android:drawSelectorOnTop="true"
+                                    android:entries="@array/tension" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/labor_a_realizar"
+                                    android:id="@+id/textViewLaborRealizar" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textStyle="bold"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/editTextLaborRealizar" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/km_inicial"
+                                    android:id="@+id/textViewKmInicial" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:inputType="number"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:id="@+id/editTextKmInicial" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/km_final"
+                                    android:id="@+id/textViewKmFinal" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:inputType="number"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:id="@+id/editTextKmFinal" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View style="@style/DividerHorizontal"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@color/lightGray"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/datosArbol"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:id="@+id/textViewDatosArbol" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical" android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/especie"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewEspecie" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:ems="10"
+                                    android:id="@+id/editTextEspecie" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/tratamiento"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewTratamiento" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <Spinner
+                                    android:id="@+id/spinnerTratamientos"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="50dp"
+                                    android:drawSelectorOnTop="true"
+                                    android:entries="@array/tratamiento" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/clase_poda"
+                                    android:id="@+id/textViewClasePoda" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+
+                                <Spinner
+                                    android:id="@+id/spinnerPodas"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="50dp"
+                                    android:drawSelectorOnTop="true"
+                                    android:entries="@array/poda" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/altura_inicial"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewAlturaInicial" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="numberDecimal"
+                                    android:singleLine="true"
+                                    android:textColor="@android:color/black"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:id="@+id/editTextAlturaInicial" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/altura_final"
+                                    android:id="@+id/textViewAlturaFinal" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:singleLine="true"
+                                    android:inputType="numberDecimal"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:ems="10"
+                                    android:id="@+id/editTextAlturaFinal" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/baremo"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewBaremo" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:ems="10"
+                                    android:id="@+id/editTextBaremo" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/pap"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewPap" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/editTextPap" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/estado_fitosanitario"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewEstadoFitosanitario" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <Spinner
+                                    android:id="@+id/spinnerFitosanario"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="50dp"
+                                    android:drawSelectorOnTop="true"
+                                    android:entries="@array/fitosanario" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/diametro_inicial"
+                                    android:id="@+id/textViewDiametroInicial" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:textColor="@android:color/black"
+                                    android:singleLine="true"
+                                    android:hint="X"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:gravity="center"
+                                    android:id="@+id/editTextXDiametroInicial" />
+
+                                <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:textColor="@android:color/black"
+                                    android:layout_height="match_parent"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:hint="Y"
+                                    android:ems="10"
+                                    android:gravity="center"
+                                    android:id="@+id/editTextYDiametroInicial" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/diametro_final"
+                                    android:id="@+id/textViewDiametroFinal" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:textColor="@android:color/black"
+                                    android:layout_height="match_parent"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:hint="X"
+                                    android:ems="10"
+                                    android:gravity="center"
+                                    android:id="@+id/editTextXDiametroFinal" />
+
+                                <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:textColor="@android:color/black"
+                                    android:layout_height="match_parent"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:hint="Y"
+                                    android:ems="10"
+                                    android:gravity="center"
+                                    android:id="@+id/editTextYDiametroFinal" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/nro_plaqueta"
+                                    android:id="@+id/textViewNroPlaqueta" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:inputType="number"
+                                    android:textStyle="bold"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:maxLength="7"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/editTextNroPlaqueta" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/coordenada_x"
+                                    android:id="@+id/textViewCoordenadasX" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textStyle="bold"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/editTextCoordenadasX" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/coordenada_y"
+                                    android:id="@+id/textViewCoordenadasY" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:singleLine="true"
+                                    android:maxLines="1"
+                                    android:ems="10"
+                                    android:id="@+id/editTextCoordenadasY" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View style="@style/DividerHorizontal"/>
+
+                    </LinearLayout>
+
+                    <View style="@style/DividerHorizontal"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@color/lightGray"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/datos_fotograficos"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:id="@+id/textViewDatosFotograficos" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical" android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp">
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@mipmap/ic_pine_tree"
+                                    android:id="@+id/imageViewAntes"
+                                    android:clickable="true"
+                                    android:layout_gravity="center_horizontal" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/antes_clic"
+                                    android:textColor="@android:color/black"
+                                    android:id="@+id/textViewAntesClic"
+                                    android:gravity="center"
+                                    android:layout_gravity="center_horizontal" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp" >
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@mipmap/ic_pine_tree"
+                                    android:id="@+id/imageViewPresente"
+                                    android:clickable="true"
+                                    android:layout_gravity="center_horizontal" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/actual_clic"
+                                    android:id="@+id/textView"
+                                    android:gravity="center"
+                                    android:layout_gravity="center_horizontal" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp">
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@mipmap/ic_pine_tree"
+                                    android:id="@+id/imageViewDespues"
+                                    android:clickable="true"
+                                    android:layout_gravity="center_horizontal" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/despues_clic"
+                                    android:id="@+id/textViewDespuesClic"
+                                    android:gravity="center"
+                                    android:layout_gravity="center_horizontal" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

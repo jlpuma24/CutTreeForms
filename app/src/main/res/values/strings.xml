@@ -1,0 +1,146 @@
+<resources>
+    <string name="app_name">TreeCutForms</string>
+    <string name="title">FICHA TECNICA DE PODA DE ÁRBOLES DE LOS CORREDORES DE CIRCUITOS DEL SISTEMA DE DISTRIBUCION ELECTRICO ENERTOLIMA</string>
+    <string name="contratista">CONTRATISTA</string>
+    <string name="limpiaductos">LIMPIADUCTOS</string>
+    <string name="contrato">CONTRATO:</string>
+    <string name="nro_contrato">GD 052 - 2016</string>
+    <string name="datosCuadrilla">DATOS DEL CUADRILLA</string>
+    <string name="datosUbicacion">DATOS DE UBICACIÓN</string>
+    <string name="datosArbol">DATOS DEL ÁRBOL</string>
+    <string name="ficha_tecnica">FICHA TÉCNICA</string>
+    <string name="datos_fotograficos">DATOS FOTOGRÁFICOS</string>
+    <string name="sync_data">Subiendo datos, por favor espere. Está operación podría ser larga.</string>
+    
+    <!--Cuadrilla form-->
+    <string name="consecutivo">CONSECUTIVO</string>
+    <string name="movil">MOVIL</string>
+    <string name="nro_orden">Nº ORDEN DE TRABAJO</string>
+    <string name="nro_reporte">Nº REPORTE</string>
+    <string name="cuadrillero">CUADRILLERO</string>
+    <string name="operario_uno">OPERARIO 1</string>
+    <string name="operario_dos">OPERARIO 2</string>
+    <string name="operario_tres">OPERARIO 3</string>
+    <string name="operario_cuatro">OPERARIO 4</string>
+
+    <!--Ubicacion form-->
+    <string name="fecha">FECHA</string>
+    <string name="hora_salida">HORA SALIDA</string>
+    <string name="hora_inicio">HORA INICIO DE LABORES</string>
+    <string name="hora_fin">HORA FINAL DE LABORES</string>
+    <string name="hora_llegada">HORA LLEGADA</string>
+    <string name="municipio">MUNICIPIO</string>
+    <string name="zona">ZONA</string>
+    <string name="direccion">DIRECCIÓN</string>
+    <string name="barrio_vereda">BARRIO/VEREDA</string>
+    <string name="circuito">CIRCUITO</string>
+    <string name="tension">TENSIÓN</string>
+    <string name="labor_a_realizar">LABOR A REALIZAR</string>
+    <string name="km_inicial">KILOMETRAJE INICIAL</string>
+    <string name="km_final">KILOMETRAJE FINAL</string>
+
+    <!--Arbol form-->
+    <string name="especie">ESPECIE O NOMBRE</string>
+    <string name="tratamiento">TRATAMIENTO</string>
+    <string name="clase_poda">CLASE DE PODA</string>
+    <string name="altura_inicial">ALTURA INICIAL</string>
+    <string name="altura_final">ALTURA FINAL</string>
+    <string name="baremo">BAREMO</string>
+    <string name="pap">PAP</string>
+    <string name="estado_fitosanitario">ESTADO FITOSANITARIO</string>
+    <string name="diametro_inicial">DIAMETRO DE COPA INICIAL</string>
+    <string name="diametro_final">DIAMETRO DE COPA FINAL</string>
+    <string name="nro_plaqueta">Nº PLAQUETA</string>
+    <string name="coordenada_x">CORDENADAS X</string>
+    <string name="coordenada_y">CORDENADAS Y</string>
+
+    <!--Fotos form-->
+    <string name="antes_clic">ANTES\n(clic en icono para tomar foto)</string>
+    <string name="despues_clic">DESPUÉS\n(clic en icono para tomar foto)</string>
+    <string name="actual_clic">ACTUAL\n(clic en icono para tomar foto)</string>
+
+    <string name="survey_save_alert_msg">Deseas Guardar Formulario?</string>
+    <string name="survey_save">Guardar</string>
+    <string name="common_cancel">Cancelar</string>
+    <string name="info_exitosa">La información fue almacenada correctamente</string>
+    <string name="gps_alert">Para realizar uso de esta aplicación, es necesario la activacion de gps</string>
+    
+    <string-array name="municipios">
+        <item>Alvarado</item>
+        <item>Anzoátegui</item>
+        <item>Cajamarca</item>
+        <item>Coello</item>
+        <item>Espinal</item>
+        <item>Flandes</item>
+        <item>Ibagué</item>
+        <item>Piedras</item>
+        <item>Rovira</item>
+        <item>San Luis</item>
+        <item>Valle de San Juan</item>
+        <item>Casabianca</item>
+        <item>Herveo</item>
+        <item>Lérida</item>
+        <item>Líbano</item>
+        <item>Murillo</item>
+        <item>Santa Isabel</item>
+        <item>Venadillo</item>
+        <item>Villahermosa</item>
+        <item>Ambalema</item>
+        <item>Armero</item>
+        <item>Falán</item>
+        <item>Fresno</item>
+        <item>Honda</item>
+        <item>Mariquita</item>
+        <item>Palocabildo</item>
+        <item>Carmen de Apicalá</item>
+        <item>Cunday</item>
+        <item>Icononzo</item>
+        <item>Melgar</item>
+        <item>Villarrica</item>
+        <item>Ataco</item>
+        <item>Chaparral</item>
+        <item>Coyaima</item>
+        <item>Natagaima</item>
+        <item>Ortega</item>
+        <item>Planadas</item>
+        <item>Rioblanco</item>
+        <item>Roncesvalles</item>
+        <item>San Antonio</item>
+        <item>Alpujarra</item>
+        <item>Dolores</item>
+        <item>Guamo</item>
+        <item>Prado</item>
+        <item>Purificación</item>
+        <item>Saldaña</item>
+        <item>Suárez</item>
+    </string-array>
+
+    <string-array name="tension">
+        <item>13,2Kv.</item>
+        <item>34,5Kv.</item>
+        <item>115Kv.</item>
+        <item>230Kv.</item>
+    </string-array>
+    
+    <string-array name="tratamiento">
+        <item>Poda</item>
+        <item>Tala</item>
+    </string-array>
+
+    <string-array name="poda">
+        <item>Copa</item>
+        <item>Lateral</item>
+    </string-array>
+
+    <string-array name="fitosanario">
+        <item>Bueno</item>
+        <item>Regular</item>
+        <item>Malo</item>
+    </string-array>
+
+    <string name="format_coordinates">%1$s° %2$s\' %3$s\"</string>
+
+    <string name="operario_cinco">OPERARIO 5</string>
+    <string name="operario_seis">OPERARIO 6</string>
+
+</resources>
