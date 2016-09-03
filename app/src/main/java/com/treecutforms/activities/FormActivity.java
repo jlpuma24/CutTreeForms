@@ -48,7 +48,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class FormActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private final static int REQUEST_BEFORE_PHOTO = 1;
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_form);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         imageViewBefore = (ImageView) findViewById(R.id.imageViewAntes);
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
                 TimePickerDialog mTimePicker;
-                mTimePicker = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                mTimePicker = new TimePickerDialog(FormActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         editTextHoraInicio.setText(selectedHour + ":" + selectedMinute);
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                 int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
                 TimePickerDialog mTimePicker;
-                mTimePicker = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                mTimePicker = new TimePickerDialog(FormActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         editTextHoraFin.setText(selectedHour + ":" + selectedMinute);
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                 int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
                 TimePickerDialog mTimePicker;
-                mTimePicker = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                mTimePicker = new TimePickerDialog(FormActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         editTextHoraLlegada.setText(selectedHour + ":" + selectedMinute);
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                 int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
                 TimePickerDialog mTimePicker;
-                mTimePicker = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                mTimePicker = new TimePickerDialog(FormActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                         editTextHoraSalida.setText(selectedHour + ":" + selectedMinute);
@@ -261,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpCoordinates(){
-        GPSTracker gps = new GPSTracker(MainActivity.this);
+        GPSTracker gps = new GPSTracker(FormActivity.this);
         if (gps.canGetLocation()) {
             double latitude = gps.getLatitude();
             double longitude = gps.getLongitude();
@@ -390,7 +390,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.mUpload:
-                new AlertDialog.Builder(MainActivity.this)
+                new AlertDialog.Builder(FormActivity.this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setMessage(R.string.survey_save_alert_msg)
                         .setPositiveButton(getString(R.string.survey_save), new DialogInterface.OnClickListener() {
@@ -413,7 +413,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 ApiService apiService = retrofit.create(ApiService.class);
 
-                                final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+                                final ProgressDialog progressDialog = new ProgressDialog(FormActivity.this);
                                 progressDialog.setMessage(getString(R.string.sync_data));
                                 progressDialog.setCancelable(false);
                                 progressDialog.show();
@@ -476,8 +476,8 @@ public class MainActivity extends AppCompatActivity {
                                     public void onResponse(Call<ImageResponse> call, Response<ImageResponse> response) {
                                         progressDialog.dismiss();
                                         PrefsUtil.getInstance().setAutogenerated(PrefsUtil.getInstance().getAutogenerated()+1);
-                                        Toast.makeText(MainActivity.this, getString(R.string.info_exitosa) ,Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent(MainActivity.this, MainActivity.class));
+                                        Toast.makeText(FormActivity.this, getString(R.string.info_exitosa) ,Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(FormActivity.this, FormActivity.class));
                                         PrefsUtil.getInstance().clearPhotos();
                                         finish();
                                     }

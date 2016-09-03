@@ -40,7 +40,7 @@ public class SplashActivity extends Activity {
                 public void run() {
                     try {
                         Thread.sleep(3000);
-                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                        startActivity(new Intent(SplashActivity.this, FormActivity.class));
                         finish();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -55,7 +55,7 @@ public class SplashActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == 1) {
             switch (requestCode) {
-                case 1: startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                case 1: startActivity(new Intent(SplashActivity.this, FormActivity.class));
                         finish();
                         break;
             }
@@ -82,7 +82,7 @@ public class SplashActivity extends Activity {
                 alert.show();
             }
             else {
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                startActivity(new Intent(SplashActivity.this, FormActivity.class));
                 finish();
             }
         }
