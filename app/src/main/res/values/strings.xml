@@ -145,6 +145,7 @@
     <string name="operario_seis">OPERARIO 6</string>
 
     <string name="activity_main_toolbar_title">Lista de Formularios</string>
+    <string name="activity_main_empty_forms">Aún no tienes formularios guardados</string>
     <string name="form_item_view_from_index_format">Formulario %1$s</string>
 
 </resources>

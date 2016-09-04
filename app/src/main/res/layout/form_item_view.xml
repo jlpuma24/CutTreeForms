@@ -15,14 +15,13 @@
         tools:text="Form 1" />
 
     <ImageButton
-
-        android:padding="@dimen/medium_space"
         android:id="@+id/ib_refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:background="@android:color/transparent"
-        android:src="@drawable/ic_refresh" />
+        android:padding="@dimen/medium_space"
+        tools:src="@drawable/ic_refresh" />
 
 </RelativeLayout>

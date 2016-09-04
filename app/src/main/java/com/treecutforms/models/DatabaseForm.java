@@ -15,10 +15,11 @@ public class DatabaseForm extends RealmObject {
     private Form form;
     private boolean uploaded;
 
+
     public DatabaseForm() {
     }
 
-    public DatabaseForm(int id, Form form, boolean uploaded) {
+    public DatabaseForm(long id, Form form, boolean uploaded) {
         this.id = id;
         this.form = form;
         this.uploaded = uploaded;

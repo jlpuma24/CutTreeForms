@@ -2,9 +2,11 @@ package com.treecutforms.database;
 
 import com.treecutforms.listeners.OnDataBaseSave;
 import com.treecutforms.models.DatabaseForm;
-import com.treecutforms.models.Form;
+
+import java.util.ArrayList;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 /**
  * @author Gabriel Rodriguez
@@ -43,5 +45,10 @@ public class DataBaseHelper {
                 callback.onError();
             }
         });
+    }
+
+    public ArrayList<DatabaseForm> getForms() {
+        RealmResults<DatabaseForm> results = realm.where(DatabaseForm.class).findAll();
+        return new ArrayList<>(results.subList(0, results.size()));
     }
 }

@@ -2,7 +2,8 @@ package com.treecutforms.adapters;
 
 import android.view.ViewGroup;
 
-import com.treecutforms.models.Form;
+import com.treecutforms.listeners.OnUploadButtonSelected;
+import com.treecutforms.models.DatabaseForm;
 import com.treecutforms.views.FormItemView;
 
 /**
@@ -10,7 +11,13 @@ import com.treecutforms.views.FormItemView;
  * @version 1.0
  */
 
-public class FormItemAdapter extends RecyclerViewBaseAdapter<Form, FormItemView> {
+public class FormItemAdapter extends RecyclerViewBaseAdapter<DatabaseForm, FormItemView> {
+
+    private OnUploadButtonSelected callback;
+
+    public FormItemAdapter(OnUploadButtonSelected callback) {
+        this.callback = callback;
+    }
 
     @Override
     protected FormItemView onCreateItemView(ViewGroup parent, int viewType) {
@@ -19,6 +26,6 @@ public class FormItemAdapter extends RecyclerViewBaseAdapter<Form, FormItemView>
 
     @Override
     public void onBindViewHolder(ViewWrapper<FormItemView> holder, int position) {
-        holder.getView().bind(String.valueOf(position + 1));
+        holder.getView().bind(getItems().get(position), callback);
     }
 }
