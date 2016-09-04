@@ -2,12 +2,14 @@ package com.treecutforms.models;
 
 import java.io.Serializable;
 
+import io.realm.RealmObject;
+
 /**
  * @author Gabriel Rodriguez
  * @version 1.0
  */
 
-public class Form implements Serializable {
+public class Form extends RealmObject implements Serializable {
 
     private String beforeImage;
     private String afterImage;
@@ -52,6 +54,7 @@ public class Form implements Serializable {
     private String coordenadaY;
     private String operarioCinco;
     private String operarioSeis;
+    private String presentDocument;
 
     public Form() {
     }
@@ -62,10 +65,11 @@ public class Form implements Serializable {
                 String horaSalida, String horaInicio, String horaFinal, String horaLlegada,
                 String municipio, String zona, String direccion, String barrio, String circuito,
                 String tension, String labor, String kmInicial, String kmFinal, String especieArbol,
-                String tratamiento, String clasePoda, String alturaInicial, String alturaFinal, String baremo,
-                String pap, String estadoFitosanario, String diametroInicialX, String diametroIncialY,
-                String diametroFinalX, String diametroFinalY, String plaqueta, String coordenadaX,
-                String coordenadaY, String operarioCinco, String operarioSeis) {
+                String tratamiento, String clasePoda, String alturaInicial, String alturaFinal,
+                String baremo, String pap, String estadoFitosanario, String diametroInicialX,
+                String diametroIncialY, String diametroFinalX, String diametroFinalY, String plaqueta,
+                String coordenadaX, String coordenadaY, String operarioCinco, String operarioSeis,
+                String presentDocument) {
 
         this.beforeImage = beforeImage;
         this.afterImage = afterImage;
@@ -110,6 +114,7 @@ public class Form implements Serializable {
         this.coordenadaY = coordenadaY;
         this.operarioCinco = operarioCinco;
         this.operarioSeis = operarioSeis;
+        this.presentDocument = presentDocument;
     }
 
     public String getBeforeImage() {
@@ -454,5 +459,13 @@ public class Form implements Serializable {
 
     public void setOperarioSeis(String operarioSeis) {
         this.operarioSeis = operarioSeis;
+    }
+
+    public String getPresentDocument() {
+        return presentDocument;
+    }
+
+    public void setPresentDocument(String presentDocument) {
+        this.presentDocument = presentDocument;
     }
 }
