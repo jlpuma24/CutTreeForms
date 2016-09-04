@@ -143,4 +143,6 @@
     <string name="operario_cinco">OPERARIO 5</string>
     <string name="operario_seis">OPERARIO 6</string>
 
+    <string name="form_item_view_from_index_format">Formulario %1$s</string>
+
 </resources>

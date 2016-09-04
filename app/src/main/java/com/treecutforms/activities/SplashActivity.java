@@ -28,19 +28,18 @@ public class SplashActivity extends Activity {
                     .setCancelable(false)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
-                            startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),1);
+                            startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 1);
                         }
                     });
             final AlertDialog alert = builder.create();
             alert.show();
-        }
-        else {
+        } else {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
                         Thread.sleep(3000);
-                        startActivity(new Intent(SplashActivity.this, FormActivity.class));
+                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
                         finish();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -55,9 +54,10 @@ public class SplashActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == 1) {
             switch (requestCode) {
-                case 1: startActivity(new Intent(SplashActivity.this, FormActivity.class));
-                        finish();
-                        break;
+                case 1:
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    finish();
+                    break;
             }
         }
     }
@@ -65,9 +65,9 @@ public class SplashActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (!isFirstTime){
+        if (!isFirstTime) {
             isFirstTime = true;
-        }else {
+        } else {
             final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -75,14 +75,13 @@ public class SplashActivity extends Activity {
                         .setCancelable(false)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
-                                startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),1);
+                                startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 1);
                             }
                         });
                 final AlertDialog alert = builder.create();
                 alert.show();
-            }
-            else {
-                startActivity(new Intent(SplashActivity.this, FormActivity.class));
+            } else {
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
             }
         }
