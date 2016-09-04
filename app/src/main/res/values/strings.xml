@@ -146,6 +146,7 @@
 
     <string name="activity_main_toolbar_title">Lista de Formularios</string>
     <string name="activity_main_empty_forms">Aún no tienes formularios guardados</string>
+    <string name="activity_form_date_format">Realizado el %1$s/%2$s/%3$s a <las></las> %4$s:%5$s:%6$s</string>
     <string name="form_item_view_from_index_format">Formulario %1$s</string>
 
 </resources>

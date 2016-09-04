@@ -342,6 +342,7 @@ public class FormActivity extends AppCompatActivity {
                                 form.setAfterPhotoUrl(PrefsUtil.getInstance().getAfterPhoto());
                                 form.setBeforePhotoUrl(PrefsUtil.getInstance().getBeforePhoto());
                                 form.setPresentPhotoUrl(PrefsUtil.getInstance().getPresentPhoto());
+                                form.setDate(getCurrentDate());
 
                                 DataBaseHelper.getInstance().addForm(form, new OnDataBaseSave() {
                                     @Override
@@ -367,6 +368,17 @@ public class FormActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private String getCurrentDate() {
+        Calendar calendar = Calendar.getInstance();
+        return getString(R.string.activity_form_date_format,
+                String.valueOf(calendar.get(Calendar.DATE)),
+                String.valueOf(calendar.get(Calendar.MONTH) + 1),
+                String.valueOf(calendar.get(Calendar.YEAR)),
+                String.valueOf(calendar.get(Calendar.HOUR)),
+                String.valueOf(calendar.get(Calendar.MINUTE)),
+                String.valueOf(calendar.get(Calendar.SECOND)));
     }
 
 }

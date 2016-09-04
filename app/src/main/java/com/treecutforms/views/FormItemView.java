@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.treecutforms.R;
@@ -18,7 +18,7 @@ import com.treecutforms.models.DatabaseForm;
  * @version 1.0
  */
 
-public class FormItemView extends RelativeLayout {
+public class FormItemView extends FrameLayout {
 
     public FormItemView(Context context) {
         super(context);
@@ -32,6 +32,7 @@ public class FormItemView extends RelativeLayout {
     public void bind(final DatabaseForm form, @Nullable final OnUploadButtonSelected callback) {
         ((TextView) findViewById(R.id.tv_form_name)).setText(getContext().getString(
                 R.string.form_item_view_from_index_format, String.valueOf(form.getId())));
+        ((TextView) findViewById(R.id.tv_form_date)).setText(form.getDate());
         ImageButton imageButton = ((ImageButton) findViewById(R.id.ib_refresh));
         if (!form.isUploaded()) {
             imageButton.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_refresh));

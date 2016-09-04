@@ -26,10 +26,12 @@
                 android:layout_height="match_parent">
 
                 <android.support.v7.widget.RecyclerView
+                    android:paddingTop="@dimen/small_space"
+                    android:clipToPadding="false"
                     android:id="@+id/rv_form_list"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:listitem="@android:layout/simple_expandable_list_item_1" />
+                    tools:listitem="@layout/form_item_view" />
 
                 <TextView
                     android:id="@+id/tv_empty_forms"
