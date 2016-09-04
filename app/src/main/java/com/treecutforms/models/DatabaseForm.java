@@ -14,15 +14,20 @@ public class DatabaseForm extends RealmObject {
     private long id;
     private Form form;
     private boolean uploaded;
-
+    private String afterPhotoUrl;
+    private String beforePhotoUrl;
+    private String presentPhotoUrl;
 
     public DatabaseForm() {
     }
 
-    public DatabaseForm(long id, Form form, boolean uploaded) {
+    public DatabaseForm(long id, Form form, boolean uploaded, String afterPhotoUrl, String beforePhotoUrl, String presentPhotoUrl) {
         this.id = id;
         this.form = form;
         this.uploaded = uploaded;
+        this.afterPhotoUrl = afterPhotoUrl;
+        this.beforePhotoUrl = beforePhotoUrl;
+        this.presentPhotoUrl = presentPhotoUrl;
     }
 
     public long getId() {
@@ -47,5 +52,29 @@ public class DatabaseForm extends RealmObject {
 
     public void setUploaded(boolean uploaded) {
         this.uploaded = uploaded;
+    }
+
+    public String getAfterPhotoUrl() {
+        return afterPhotoUrl;
+    }
+
+    public void setAfterPhotoUrl(String afterPhotoUrl) {
+        this.afterPhotoUrl = afterPhotoUrl;
+    }
+
+    public String getBeforePhotoUrl() {
+        return beforePhotoUrl;
+    }
+
+    public void setBeforePhotoUrl(String beforePhotoUrl) {
+        this.beforePhotoUrl = beforePhotoUrl;
+    }
+
+    public String getPresentPhotoUrl() {
+        return presentPhotoUrl;
+    }
+
+    public void setPresentPhotoUrl(String presentPhotoUrl) {
+        this.presentPhotoUrl = presentPhotoUrl;
     }
 }

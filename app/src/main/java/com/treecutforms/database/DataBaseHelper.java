@@ -51,4 +51,24 @@ public class DataBaseHelper {
         RealmResults<DatabaseForm> results = realm.where(DatabaseForm.class).findAll();
         return new ArrayList<>(results.subList(0, results.size()));
     }
+
+    public void updateUploadedForm(final Long id, final OnDataBaseSave callback) {
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                DatabaseForm result = realm.where(DatabaseForm.class).equalTo("id", id).findFirst();
+                result.setUploaded(true);
+            }
+        }, new Realm.Transaction.OnSuccess() {
+            @Override
+            public void onSuccess() {
+                callback.onSuccess();
+            }
+        }, new Realm.Transaction.OnError() {
+            @Override
+            public void onError(Throwable error) {
+                callback.onError();
+            }
+        });
+    }
 }

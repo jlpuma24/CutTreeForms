@@ -22,7 +22,6 @@ import com.treecutforms.listeners.OnUploadButtonSelected;
 import com.treecutforms.models.DatabaseForm;
 import com.treecutforms.network.ApiService;
 import com.treecutforms.network.ImageResponse;
-import com.treecutforms.utils.PrefsUtil;
 
 import java.io.File;
 
@@ -144,9 +143,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         ApiService apiService = retrofit.create(ApiService.class);
                         progressDialog.show();
 
-                        MultipartBody.Part afterPhoto = obtainPartImageData(new File(form.getForm().getAfterImage()), REQUEST_AFTER_PHOTO);
-                        MultipartBody.Part beforePhoto = obtainPartImageData(new File(form.getForm().getBeforeImage()), REQUEST_BEFORE_PHOTO);
-                        MultipartBody.Part presentPhoto = obtainPartImageData(new File(form.getForm().getPresentDocument()), REQUEST_PRESENT_PHOTO);
+                        MultipartBody.Part afterPhoto = obtainPartImageData(new File(form.getAfterPhotoUrl()), REQUEST_AFTER_PHOTO);
+                        MultipartBody.Part beforePhoto = obtainPartImageData(new File(form.getBeforePhotoUrl()), REQUEST_BEFORE_PHOTO);
+                        MultipartBody.Part presentPhoto = obtainPartImageData(new File(form.getPresentPhotoUrl()), REQUEST_PRESENT_PHOTO);
 
                         apiService.doStoreImage(form.getForm().getBeforeImage(),
                                 form.getForm().getAfterImage(), form.getForm().getContrato(),
@@ -175,11 +174,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             @Override
                             public void onResponse(Call<ImageResponse> call, Response<ImageResponse> response) {
                                 progressDialog.dismiss();
-                                form.setUploaded(true);
-                                DataBaseHelper.getInstance().addForm(form, new OnDataBaseSave() {
+                                DataBaseHelper.getInstance().updateUploadedForm(form.getId(), new OnDataBaseSave() {
                                     @Override
                                     public void onSuccess() {
-                                        PrefsUtil.getInstance().clearPhotos();
                                         Toast.makeText(MainActivity.this, getString(R.string.info_exitosa), Toast.LENGTH_LONG).show();
                                         new Handler().postDelayed(new Runnable() {
                                             @Override
