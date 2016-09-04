@@ -6,13 +6,15 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -24,10 +26,14 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import com.squareup.picasso.Picasso;
 import com.treecutforms.R;
-import com.treecutforms.network.ApiService;
-import com.treecutforms.network.ImageResponse;
+import com.treecutforms.database.DataBaseHelper;
+import com.treecutforms.databinding.ActivityFormBinding;
+import com.treecutforms.listeners.OnDataBaseSave;
+import com.treecutforms.models.DatabaseForm;
+import com.treecutforms.models.Form;
 import com.treecutforms.utils.GPSTracker;
 import com.treecutforms.utils.PrefsUtil;
 
@@ -37,126 +43,28 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.OkHttpClient;
-import okhttp3.RequestBody;
-import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FormActivity extends AppCompatActivity {
+
+    private ActivityFormBinding binding;
 
     private Toolbar mToolbar;
     private final static int REQUEST_BEFORE_PHOTO = 1;
     private final static int REQUEST_AFTER_PHOTO = 2;
     private final static int REQUEST_PRESENT_PHOTO = 3;
-    private ImageView imageViewBefore;
-    private ImageView imageViewAfter;
-    private ImageView imageViewPresent;
-    private EditText editTextContrato;
-    private EditText editTextConsecutivo;
-    private EditText editTextMovil;
-    private EditText editTextNroOrden;
-    private EditText editTextNroReporte;
-    private EditText editTextCuadrillero;
-    private EditText editTextOperarioUno;
-    private EditText editTextOperarioDos;
-    private EditText editTextOperarioTres;
-    private EditText editTextOperarioCuatro;
-    private EditText editTextFecha;
-    private EditText editTextHoraSalida;
-    private EditText editTextHoraInicio;
-    private EditText editTextHoraFin;
-    private EditText editTextHoraLlegada;
-    private Spinner spinnerMunicipios;
-    private EditText editTextZona;
-    private EditText editTextDireccion;
-    private EditText editTextBarrioVereda;
-    private EditText editTextCircuito;
-    private Spinner spinnerTensiones;
-    private EditText editTextLaborRealizar;
-    private EditText editTextKmInicial;
-    private EditText editTextKmFinal;
-    private EditText editTextEspecie;
-    private Spinner spinnerTratamiento;
-    private Spinner spinnerClasePoda;
-    private EditText editTextAlturaInicial;
-    private EditText editTextAlturaFinal;
-    private EditText editTextBaremo;
-    private EditText editTextPap;
-    private Spinner spinnerEstadoFitosanitario;
-    private EditText editTextXDiametroInicial;
-    private EditText editTextYDiametroInicial;
-    private EditText editTextXDiametroFinal;
-    private EditText editTextYDiametroFinal;
-    private EditText editTextNroPlaqueta;
-    private EditText editTextCoordenadasX;
-    private EditText editTextCoordenadasY;
-    private EditText editTextOperarioCinco;
-    private EditText editTextOperarioSeis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form);
-
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        imageViewBefore = (ImageView) findViewById(R.id.imageViewAntes);
-        imageViewAfter = (ImageView) findViewById(R.id.imageViewDespues);
-        imageViewPresent = (ImageView) findViewById(R.id.imageViewPresente);
-        editTextContrato = (EditText) findViewById(R.id.editTextContrato);
-        editTextConsecutivo = (EditText) findViewById(R.id.editTextConsecutivo);
-        editTextMovil = (EditText) findViewById(R.id.editTextMovil);
-        editTextNroOrden = (EditText) findViewById(R.id.editTextNroOrden);
-        editTextNroReporte = (EditText) findViewById(R.id.editTextNroReporte);
-        editTextCuadrillero = (EditText) findViewById(R.id.editTextCuadrillero);
-        editTextOperarioUno = (EditText) findViewById(R.id.editTextOperarioUno);
-        editTextOperarioDos = (EditText) findViewById(R.id.editTextOperarioDos);
-        editTextOperarioTres = (EditText) findViewById(R.id.editTextOperarioTres);
-        editTextOperarioCuatro = (EditText) findViewById(R.id.editTextOperarioCuatro);
-        editTextFecha = (EditText) findViewById(R.id.editTextFecha);
-        editTextHoraSalida = (EditText) findViewById(R.id.editTextHoraSalida);
-        editTextHoraInicio = (EditText) findViewById(R.id.editTextHoraInicio);
-        editTextHoraFin = (EditText) findViewById(R.id.editTextHoraFin);
-        editTextHoraLlegada = (EditText) findViewById(R.id.editTextHoraLlegada);
-        spinnerMunicipios = (Spinner) findViewById(R.id.spinnerMunicipios);
-        editTextZona = (EditText) findViewById(R.id.editTextZona);
-        editTextDireccion = (EditText) findViewById(R.id.editTextDireccion);
-        editTextBarrioVereda = (EditText) findViewById(R.id.editTextBarrioVereda);
-        editTextCircuito = (EditText) findViewById(R.id.editTextCircuito);
-        spinnerTensiones = (Spinner) findViewById(R.id.spinnerTensiones);
-        editTextLaborRealizar = (EditText) findViewById(R.id.editTextLaborRealizar);
-        editTextKmInicial = (EditText) findViewById(R.id.editTextKmInicial);
-        editTextKmFinal = (EditText) findViewById(R.id.editTextKmFinal);
-        editTextEspecie = (EditText) findViewById(R.id.editTextEspecie);
-        spinnerTratamiento = (Spinner) findViewById(R.id.spinnerTratamientos);
-        spinnerClasePoda = (Spinner) findViewById(R.id.spinnerPodas);
-        editTextAlturaInicial = (EditText) findViewById(R.id.editTextAlturaInicial);
-        editTextAlturaFinal = (EditText) findViewById(R.id.editTextAlturaFinal);
-        editTextBaremo = (EditText) findViewById(R.id.editTextBaremo);
-        editTextPap = (EditText) findViewById(R.id.editTextPap);
-        spinnerEstadoFitosanitario = (Spinner) findViewById(R.id.spinnerFitosanario);
-        editTextXDiametroInicial = (EditText) findViewById(R.id.editTextXDiametroInicial);
-        editTextYDiametroInicial = (EditText) findViewById(R.id.editTextYDiametroInicial);
-        editTextXDiametroFinal = (EditText) findViewById(R.id.editTextXDiametroFinal);
-        editTextYDiametroFinal = (EditText) findViewById(R.id.editTextYDiametroFinal);
-        editTextNroPlaqueta = (EditText) findViewById(R.id.editTextNroPlaqueta);
-        editTextCoordenadasX = (EditText) findViewById(R.id.editTextCoordenadasX);
-        editTextCoordenadasY = (EditText) findViewById(R.id.editTextCoordenadasY);
-        editTextOperarioCinco = (EditText) findViewById(R.id.editTextOperarioCinco);
-        editTextOperarioSeis = (EditText) findViewById(R.id.editTextOperarioSeis);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_form);
 
         //Setting default values
-        editTextConsecutivo.setText(String.valueOf(PrefsUtil.getInstance().getAutogenerated()));
-        editTextContrato.setEnabled(false);
-        editTextConsecutivo.setEnabled(false);
+        binding.editTextConsecutivo.setText(String.valueOf(PrefsUtil.getInstance().getAutogenerated()));
+        binding.editTextContrato.setEnabled(false);
+        binding.editTextConsecutivo.setEnabled(false);
 
-        editTextHoraInicio.setFocusable(false);
-        editTextHoraInicio.setOnClickListener(new View.OnClickListener() {
+        binding.editTextHoraInicio.setFocusable(false);
+        binding.editTextHoraInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar mcurrentTime = Calendar.getInstance();
@@ -166,7 +74,7 @@ public class FormActivity extends AppCompatActivity {
                 mTimePicker = new TimePickerDialog(FormActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        editTextHoraInicio.setText(selectedHour + ":" + selectedMinute);
+                        binding.editTextHoraInicio.setText(selectedHour + ":" + selectedMinute);
                     }
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Seleccione hora");
@@ -174,8 +82,8 @@ public class FormActivity extends AppCompatActivity {
             }
         });
 
-        editTextHoraFin.setFocusable(false);
-        editTextHoraFin.setOnClickListener(new View.OnClickListener() {
+        binding.editTextHoraFin.setFocusable(false);
+        binding.editTextHoraFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar mcurrentTime = Calendar.getInstance();
@@ -185,7 +93,7 @@ public class FormActivity extends AppCompatActivity {
                 mTimePicker = new TimePickerDialog(FormActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        editTextHoraFin.setText(selectedHour + ":" + selectedMinute);
+                        binding.editTextHoraFin.setText(selectedHour + ":" + selectedMinute);
                     }
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Seleccione hora");
@@ -193,8 +101,8 @@ public class FormActivity extends AppCompatActivity {
             }
         });
 
-        editTextHoraLlegada.setFocusable(false);
-        editTextHoraLlegada.setOnClickListener(new View.OnClickListener() {
+        binding.editTextHoraLlegada.setFocusable(false);
+        binding.editTextHoraLlegada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar mcurrentTime = Calendar.getInstance();
@@ -204,7 +112,7 @@ public class FormActivity extends AppCompatActivity {
                 mTimePicker = new TimePickerDialog(FormActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        editTextHoraLlegada.setText(selectedHour + ":" + selectedMinute);
+                        binding.editTextHoraLlegada.setText(selectedHour + ":" + selectedMinute);
                     }
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Seleccione hora");
@@ -212,8 +120,8 @@ public class FormActivity extends AppCompatActivity {
             }
         });
 
-        editTextHoraSalida.setFocusable(false);
-        editTextHoraSalida.setOnClickListener(new View.OnClickListener() {
+        binding.editTextHoraSalida.setFocusable(false);
+        binding.editTextHoraSalida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar mcurrentTime = Calendar.getInstance();
@@ -223,7 +131,7 @@ public class FormActivity extends AppCompatActivity {
                 mTimePicker = new TimePickerDialog(FormActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        editTextHoraSalida.setText(selectedHour + ":" + selectedMinute);
+                        binding.editTextHoraSalida.setText(selectedHour + ":" + selectedMinute);
                     }
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Seleccione hora");
@@ -232,27 +140,27 @@ public class FormActivity extends AppCompatActivity {
         });
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        editTextFecha.setText(dateFormat.format(new Date()));
-        editTextFecha.setEnabled(false);
+        binding.editTextFecha.setText(dateFormat.format(new Date()));
+        binding.editTextFecha.setEnabled(false);
 
         setUpToolbar(getString(R.string.ficha_tecnica));
         hideKeyBoard();
 
-        imageViewAfter.setOnClickListener(new View.OnClickListener() {
+        binding.imageViewDespues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent(REQUEST_AFTER_PHOTO);
             }
         });
 
-        imageViewBefore.setOnClickListener(new View.OnClickListener() {
+        binding.imageViewAntes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent(REQUEST_BEFORE_PHOTO);
             }
         });
 
-        imageViewPresent.setOnClickListener(new View.OnClickListener() {
+        binding.imageViewPresente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent(REQUEST_PRESENT_PHOTO);
@@ -260,7 +168,7 @@ public class FormActivity extends AppCompatActivity {
         });
     }
 
-    private void setUpCoordinates(){
+    private void setUpCoordinates() {
         GPSTracker gps = new GPSTracker(FormActivity.this);
         if (gps.canGetLocation()) {
             double latitude = gps.getLatitude();
@@ -269,24 +177,23 @@ public class FormActivity extends AppCompatActivity {
             int degreesX = (int) latitude;
             int degreesY = (int) longitude;
 
-            int minutesX = ((int)latitude % 1) * 60;
-            int minutesY = ((int)longitude % 1) * 60;
+            int minutesX = ((int) latitude % 1) * 60;
+            int minutesY = ((int) longitude % 1) * 60;
 
-            int secondsX = ((int)latitude % 1) * 60;
-            int secondsY = ((int)longitude % 1) * 60;
+            int secondsX = ((int) latitude % 1) * 60;
+            int secondsY = ((int) longitude % 1) * 60;
 
-            editTextCoordenadasX.setText(String.format(getString(R.string.format_coordinates), String.valueOf(degreesX), String.valueOf(minutesX), String.valueOf(secondsX)));
-            editTextCoordenadasY.setText(String.format(getString(R.string.format_coordinates), String.valueOf(degreesY), String.valueOf(minutesY), String.valueOf(secondsY)));
-            editTextCoordenadasX.setEnabled(false);
-            editTextCoordenadasY.setEnabled(false);
+            binding.editTextCoordenadasX.setText(String.format(getString(R.string.format_coordinates), String.valueOf(degreesX), String.valueOf(minutesX), String.valueOf(secondsX)));
+            binding.editTextCoordenadasY.setText(String.format(getString(R.string.format_coordinates), String.valueOf(degreesY), String.valueOf(minutesY), String.valueOf(secondsY)));
+            binding.editTextCoordenadasX.setEnabled(false);
+            binding.editTextCoordenadasY.setEnabled(false);
         }
     }
 
     private void setUpToolbar(String title) {
-        if (mToolbar != null) {
+            binding.toolbar.setTitle(title);
+        binding.toolbar.setTitleTextColor(Color.WHITE);
             setSupportActionBar(mToolbar);
-            getSupportActionBar().setTitle(title);
-        }
     }
 
     @Override
@@ -301,21 +208,21 @@ public class FormActivity extends AppCompatActivity {
         setUpCoordinates();
         if (requestCode == REQUEST_AFTER_PHOTO && resultCode == RESULT_OK) {
 //            String uri = PathUtils.getPath(this, data.getData());
-            setUpImage(imageViewAfter, PrefsUtil.getInstance().getAfterPhoto());
-        }
-
-        if (requestCode == REQUEST_BEFORE_PHOTO && resultCode == RESULT_OK) {
-  //          String uri = PathUtils.getPath(this, data.getData());
-            setUpImage(imageViewBefore, PrefsUtil.getInstance().getBeforePhoto());
+            setUpImage(binding.imageViewDespues, PrefsUtil.getInstance().getAfterPhoto());
         }
 
         if (requestCode == REQUEST_BEFORE_PHOTO && resultCode == RESULT_OK) {
             //          String uri = PathUtils.getPath(this, data.getData());
-            setUpImage(imageViewPresent, PrefsUtil.getInstance().getPresentPhoto());
+            setUpImage(binding.imageViewAntes, PrefsUtil.getInstance().getBeforePhoto());
+        }
+
+        if (requestCode == REQUEST_BEFORE_PHOTO && resultCode == RESULT_OK) {
+            //          String uri = PathUtils.getPath(this, data.getData());
+            setUpImage(binding.imageViewPresente, PrefsUtil.getInstance().getPresentPhoto());
         }
     }
 
-    private void setUpImage(final ImageView photo, String url){
+    private void setUpImage(final ImageView photo, String url) {
         photo.setImageBitmap(null);
         Picasso.with(this)
                 .load(new File(url))
@@ -332,14 +239,13 @@ public class FormActivity extends AppCompatActivity {
                 });
     }
 
-    private void hideKeyBoard(){
+    private void hideKeyBoard() {
         try {
             InputMethodManager inputManager = (InputMethodManager)
                     getSystemService(Context.INPUT_METHOD_SERVICE);
             inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                     InputMethodManager.HIDE_NOT_ALWAYS);
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
         }
     }
 
@@ -360,10 +266,16 @@ public class FormActivity extends AppCompatActivity {
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
                         Uri.fromFile(photoFile));
 
-                switch (code){
-                    case REQUEST_AFTER_PHOTO: PrefsUtil.getInstance().setAfterPhoto(photoFile.getAbsolutePath()); break;
-                    case REQUEST_BEFORE_PHOTO: PrefsUtil.getInstance().setBeforePhoto(photoFile.getAbsolutePath()); break;
-                    case REQUEST_PRESENT_PHOTO: PrefsUtil.getInstance().setPresentPhoto(photoFile.getAbsolutePath()); break;
+                switch (code) {
+                    case REQUEST_AFTER_PHOTO:
+                        PrefsUtil.getInstance().setAfterPhoto(photoFile.getAbsolutePath());
+                        break;
+                    case REQUEST_BEFORE_PHOTO:
+                        PrefsUtil.getInstance().setBeforePhoto(photoFile.getAbsolutePath());
+                        break;
+                    case REQUEST_PRESENT_PHOTO:
+                        PrefsUtil.getInstance().setPresentPhoto(photoFile.getAbsolutePath());
+                        break;
                 }
 
                 startActivityForResult(takePictureIntent, code);
@@ -396,95 +308,56 @@ public class FormActivity extends AppCompatActivity {
                         .setPositiveButton(getString(R.string.survey_save), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
-                                HttpLoggingInterceptor interceptor;
-                                OkHttpClient client;
-
-                                interceptor = new HttpLoggingInterceptor();
-                                interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-                                OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder().addInterceptor(interceptor);
-                                client = clientBuilder.build();
-
-                                Retrofit retrofit = new Retrofit.Builder()
-                                        .baseUrl("http://107.170.5.112:8003/api/")
-                                        .client(client)
-                                        .addConverterFactory(GsonConverterFactory.create())
-                                        .build();
-
-                                ApiService apiService = retrofit.create(ApiService.class);
-
                                 final ProgressDialog progressDialog = new ProgressDialog(FormActivity.this);
                                 progressDialog.setMessage(getString(R.string.sync_data));
                                 progressDialog.setCancelable(false);
                                 progressDialog.show();
 
-                                MultipartBody.Part afterPhoto = obtainPartImageData(new File(PrefsUtil.getInstance().getAfterPhoto()), REQUEST_AFTER_PHOTO);
-                                MultipartBody.Part beforePhoto = obtainPartImageData(new File(PrefsUtil.getInstance().getBeforePhoto()), REQUEST_BEFORE_PHOTO);
-                                MultipartBody.Part presentPhoto = obtainPartImageData(new File(PrefsUtil.getInstance().getPresentPhoto()), REQUEST_PRESENT_PHOTO);
-
                                 String[] arrayAfterPhoto = PrefsUtil.getInstance().getAfterPhoto().split("/");
                                 String[] arrayBeforePhoto = PrefsUtil.getInstance().getBeforePhoto().split("/");
                                 String[] arrayPresentPhoto = PrefsUtil.getInstance().getPresentPhoto().split("/");
 
-                                apiService.doStoreImage(arrayBeforePhoto.length != 1 ? arrayBeforePhoto[arrayBeforePhoto.length-1] : "",
-                                                        arrayAfterPhoto.length != 1 ? arrayAfterPhoto[arrayAfterPhoto.length-1] : "",
-                                                        editTextContrato.getText().toString(),
-                                                        editTextConsecutivo.getText().toString(),
-                                                        editTextMovil.getText().toString(),
-                                                        editTextNroOrden.getText().toString(),
-                                                        editTextNroReporte.getText().toString(),
-                                                        editTextCuadrillero.getText().toString(),
-                                                        editTextOperarioUno.getText().toString(),
-                                                        editTextOperarioDos.getText().toString(),
-                                                        editTextOperarioTres.getText().toString(),
-                                                        editTextOperarioCuatro.getText().toString(),
-                                                        editTextFecha.getText().toString(),
-                                                        editTextHoraSalida.getText().toString(),
-                                                        editTextHoraInicio.getText().toString(),
-                                                        editTextHoraFin.getText().toString(),
-                                                        editTextHoraLlegada.getText().toString(),
-                                                        spinnerMunicipios.getSelectedItem().toString(),
-                                                        editTextZona.getText().toString(),
-                                                        editTextDireccion.getText().toString(),
-                                                        editTextBarrioVereda.getText().toString(),
-                                                        editTextCircuito.getText().toString(),
-                                                        spinnerTensiones.getSelectedItem().toString(),
-                                                        editTextLaborRealizar.getText().toString(),
-                                                        editTextKmInicial.getText().toString(),
-                                                        editTextKmFinal.getText().toString(),
-                                                        editTextEspecie.getText().toString(),
-                                                        spinnerTratamiento.getSelectedItem().toString(),
-                                                        spinnerClasePoda.getSelectedItem().toString(),
-                                                        editTextAlturaInicial.getText().toString(),
-                                                        editTextAlturaFinal.getText().toString(),
-                                                        editTextBaremo.getText().toString(),
-                                                        editTextPap.getText().toString(),
-                                                        spinnerEstadoFitosanitario.getSelectedItem().toString(),
-                                                        editTextXDiametroInicial.getText().toString(),
-                                                        editTextYDiametroInicial.getText().toString(),
-                                                        editTextXDiametroFinal.getText().toString(),
-                                                        editTextYDiametroFinal.getText().toString(),
-                                                        editTextNroPlaqueta.getText().toString(),
-                                                        editTextCoordenadasX.getText().toString(),
-                                                        editTextCoordenadasY.getText().toString(),
-                                                        editTextOperarioCinco.getText().toString(),
-                                                        editTextOperarioSeis.getText().toString(),
-                                                        arrayPresentPhoto.length != 1 ? arrayPresentPhoto[arrayPresentPhoto.length-1] : "",
-                                                        afterPhoto, beforePhoto, presentPhoto
-                                        ).enqueue(new Callback<ImageResponse>() {
+                                DatabaseForm form = new DatabaseForm();
+                                form.setForm(new Form(arrayBeforePhoto.length != 1 ? arrayBeforePhoto[arrayBeforePhoto.length - 1] : "",
+                                        arrayAfterPhoto.length != 1 ? arrayAfterPhoto[arrayAfterPhoto.length - 1] : "",
+                                        binding.editTextContrato.getText().toString(), binding.editTextConsecutivo.getText().toString(),
+                                        binding.editTextMovil.getText().toString(), binding.editTextNroOrden.getText().toString(),
+                                        binding.editTextNroReporte.getText().toString(), binding.editTextCuadrillero.getText().toString(),
+                                        binding.editTextOperarioUno.getText().toString(), binding.editTextOperarioDos.getText().toString(),
+                                        binding.editTextOperarioTres.getText().toString(), binding.editTextOperarioCuatro.getText().toString(),
+                                        binding.editTextFecha.getText().toString(), binding.editTextHoraSalida.getText().toString(),
+                                        binding.editTextHoraInicio.getText().toString(), binding.editTextHoraFin.getText().toString(),
+                                        binding.editTextHoraLlegada.getText().toString(), binding.spinnerMunicipios.getSelectedItem().toString(),
+                                        binding.editTextZona.getText().toString(), binding.editTextDireccion.getText().toString(),
+                                        binding.editTextBarrioVereda.getText().toString(), binding.editTextCircuito.getText().toString(),
+                                        binding.spinnerTensiones.getSelectedItem().toString(), binding.editTextLaborRealizar.getText().toString(),
+                                        binding.editTextKmInicial.getText().toString(), binding.editTextKmFinal.getText().toString(),
+                                        binding.editTextEspecie.getText().toString(), binding.spinnerTratamientos.getSelectedItem().toString(),
+                                        binding.spinnerPodas.getSelectedItem().toString(), binding.editTextAlturaInicial.getText().toString(),
+                                        binding.editTextAlturaFinal.getText().toString(), binding.editTextBaremo.getText().toString(),
+                                        binding.editTextPap.getText().toString(), binding.spinnerFitosanario.getSelectedItem().toString(),
+                                        binding.editTextXDiametroInicial.getText().toString(), binding.editTextYDiametroInicial.getText().toString(),
+                                        binding.editTextXDiametroFinal.getText().toString(), binding.editTextYDiametroFinal.getText().toString(),
+                                        binding.editTextNroPlaqueta.getText().toString(), binding.editTextCoordenadasX.getText().toString(),
+                                        binding.editTextCoordenadasY.getText().toString(), binding.editTextOperarioCinco.getText().toString(),
+                                        binding.editTextOperarioSeis.getText().toString(),
+                                        arrayPresentPhoto.length != 1 ? arrayPresentPhoto[arrayPresentPhoto.length - 1] : ""));
+                                form.setId(PrefsUtil.getInstance().getAutogenerated());
+                                form.setUploaded(false);
+                                DataBaseHelper.getInstance().addForm(form, new OnDataBaseSave() {
                                     @Override
-                                    public void onResponse(Call<ImageResponse> call, Response<ImageResponse> response) {
+                                    public void onSuccess() {
                                         progressDialog.dismiss();
-                                        PrefsUtil.getInstance().setAutogenerated(PrefsUtil.getInstance().getAutogenerated()+1);
-                                        Toast.makeText(FormActivity.this, getString(R.string.info_exitosa) ,Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent(FormActivity.this, FormActivity.class));
+                                        PrefsUtil.getInstance().setAutogenerated(PrefsUtil.getInstance().getAutogenerated() + 1);
+                                        Toast.makeText(FormActivity.this, getString(R.string.info_exitosa), Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(FormActivity.this, MainActivity.class));
                                         PrefsUtil.getInstance().clearPhotos();
                                         finish();
                                     }
 
                                     @Override
-                                    public void onFailure(Call<ImageResponse> call, Throwable t) {
-
+                                    public void onError() {
+                                        Toast.makeText(FormActivity.this, getString(R.string.info_failed), Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }
@@ -496,20 +369,4 @@ public class FormActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public MultipartBody.Part obtainPartImageData(File imgFile, int requestCode){
-        RequestBody requestFile =
-                RequestBody.create(MediaType.parse("multipart/form-data"), imgFile);
-        // MultipartBody.Part is used to send also the actual file name
-        String name = "";
-
-        switch (requestCode){
-            case REQUEST_AFTER_PHOTO: name =  "fileAfterDocument"; break;
-            case REQUEST_BEFORE_PHOTO: name = "fileBeforeDocument"; break;
-            case REQUEST_PRESENT_PHOTO: name = "filePresentDocument"; break;
-        }
-
-        MultipartBody.Part imagePart = MultipartBody.Part.createFormData(name, imgFile.getName(), requestFile);
-
-        return imagePart;
-    }
 }

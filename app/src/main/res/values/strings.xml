@@ -63,6 +63,7 @@
     <string name="survey_save">Guardar</string>
     <string name="common_cancel">Cancelar</string>
     <string name="info_exitosa">La información fue almacenada correctamente</string>
+    <string name="info_failed">La información no pudo ser almacenada</string>
     <string name="gps_alert">Para realizar uso de esta aplicación, es necesario la activacion de gps</string>
     
     <string-array name="municipios">
