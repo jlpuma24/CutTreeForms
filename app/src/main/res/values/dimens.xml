@@ -9,6 +9,7 @@
     <dimen name="regular_text_size">16sp</dimen>
     <dimen name="big_text_size">18sp</dimen>
     <dimen name="huge_text_size">21sp</dimen>
+    <dimen name="divider_height">2dp</dimen>
     <!--Base General Dimens-->
     <dimen name="tiny_space">4dp</dimen>
     <dimen name="small_space">8dp</dimen>

@@ -5,5 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="lightGray">#d3d3d3</color>
     <color name="toolbarColor">#32cd32</color>
+    <color name="grayBackground">#f0f0f0</color>
+    <color name="grayIndicator">#919292</color>
+    <color name="grayBorderLine">#f3f3f3</color>
+    <color name="boxBackground">#f9f9f9</color>
     <color name="floatingButtonColor">#32cd32</color>
+    <color name="green_buttons">#4bbd96</color>
 </resources>

@@ -10,6 +10,8 @@ import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -22,6 +24,7 @@ import com.treecutforms.listeners.OnUploadButtonSelected;
 import com.treecutforms.models.DatabaseForm;
 import com.treecutforms.network.ApiService;
 import com.treecutforms.network.ImageResponse;
+import com.treecutforms.utils.PrefsUtil;
 
 import java.io.File;
 
@@ -79,6 +82,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setupToolbar() {
         binding.toolbar.setTitle(getString(R.string.activity_main_toolbar_title));
         binding.toolbar.setTitleTextColor(Color.WHITE);
+        binding.toolbar.inflateMenu(R.menu.login);
+        binding.toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                PrefsUtil.getInstance().setLogged(false);
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                finish();
+                return false;
+            }
+        });
     }
 
     private void setupFloatingButton() {

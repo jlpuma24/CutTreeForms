@@ -149,4 +149,80 @@
     <string name="activity_form_date_format">Realizado el %1$s/%2$s/%3$s a <las></las> %4$s:%5$s:%6$s</string>
     <string name="form_item_view_from_index_format">Formulario %1$s</string>
 
+    <!-- ObBoarding -->
+    <string name="lorem_ipsum">LOREM IPSUM DOLOR SIT AMET.\nCONSECTETUR ADIPISCING ELIT.</string>
+    <string name="tired_of">TIRED OF</string>
+    <string name="waste_time">WASTE TIME</string>
+    <string name="request">REQUEST</string>
+    <string name="your_service">YOUR SERVICE</string>
+    <string name="save_time">SAVE TIME</string>
+    <string name="with_espidy">WITH ESPIDY</string>
+
+    <!-- Login -->
+    <string name="lost_your_password">LOST YOUR PASSWORD?</string>
+    <string name="need_an_account">NEED AN ACCOUNT?</string>
+    <string name="enter">Ingresar</string>
+    <string name="email_hint">EMAIL</string>
+    <string name="password_hint">PASSWORD</string>
+
+    <!-- Register -->
+    <string name="full_name_user_hint">FULL NAME</string>
+    <string name="telephone_user_hint">TELEPHONE</string>
+    <string name="continue_button">CONTINUE!</string>
+    <string name="login_facebook">LOG IN WITH FACEBOOK</string>
+    <string name="processing_data">Processing data, please wait.</string>
+    <string name="error_facebook">An error occurred when connecting to facebook, try again.</string>
+
+    <!-- Second register screen -->
+    <string name="mini_charge_cc">WE CHARGE ONLY BY CREDIT CARD\nAFTER YOUR SHIPMENT HAS ARRIVED\nQUIET YOUR DATA IS SAFE</string>
+    <string name="scan_your_card">SCAN YOUR CARD</string>
+    <string name="or_complete_fields">OR COMPLETE THE FIELDS PRESENTED BELOW</string>
+    <string name="card_number_hint">CARD NUMBER</string>
+    <string name="cvc_hint">CVC</string>
+    <string name="skip_this_step">SKIP THIS STEP</string>
+    <string name="create_account">CREATE ACCOUNT!</string>
+    <string name="select_month">Select expiration month</string>
+    <string name="select_year">Select expiration year</string>
+
+    <!-- Validations -->
+    <string name="email_validation">You must enter a valid email</string>
+    <string name="email_empty_validation">You must enter a email</string>
+    <string name="password_validation">You must enter a valid passoword</string>
+    <string name="password_empty_validation">You must enter a password</string>
+
+    <!-- Home -->
+    <string name="bike">BIKE</string>
+    <string name="moto">MOTORCYCLE</string>
+    <string name="car">CAR</string>
+    <string name="pick_up_now">PICK UP NOW!</string>
+    <string name="pick_up_location">PICK UP LOCATION</string>
+    <string name="drop_off_location">DROP OFF LOCATION</string>
+
+
+    <!-- Menu -->
+    <string name="welcome">WELCOME!</string>
+    <string name="payments">PAYMENTS</string>
+    <string name="history">HISTORY</string>
+    <string name="help">HELP</string>
+    <string name="settings">SETTINGS</string>
+    <string name="version">Versión 1.0</string>
+    <string name="title_activity_maps">Map</string>
+
+    <!-- Confirm ship -->
+    <string name="in_bike">IN BIKE</string>
+    <string name="in_moto">IN MOTORCYCLE</string>
+    <string name="in_car">IN CAR</string>
+    <string name="pick_up">PICK UP:</string>
+    <string name="drop_off">DROP OFF:</string>
+    <string name="weight_rules">MAX. SHIPMENT OF 35 KG | MAX. WEIGHT OF 10 KG</string>
+    <string name="confirm_your_shipping">CONFIRM YOUR SHIPPING</string>
+    <string name="number_items_label">NUMBER OF ITEMS</string>
+    <string name="what_shipping">PLEASE WRITE HERE WHAT IS IN YOUR SHIPPING</string>
+    <string name="terms_shipment_first">IF YOU CONFIRM THIS SHIPMENT, YOU AGREE TO</string>
+    <string name="terms_shipment_sec">THE TERMS AND CONDITIONS OF ESPIDY</string>
+    <string name="cancel_order">CANCEL ORDER</string>
+    <string name="confirm_now">CONFIRM NOW!</string>
+    <string name="quantity_items">Pick quantity of items</string>
+    <string name="format_items">%1$s items</string>
+
 </resources>

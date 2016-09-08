@@ -38,8 +38,8 @@ public class SplashActivity extends Activity {
                 @Override
                 public void run() {
                     try {
-                        Thread.sleep(3000);
-                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                        Thread.sleep(1500);
+                        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                         finish();
                     } catch (InterruptedException e) {
                         e.printStackTrace();

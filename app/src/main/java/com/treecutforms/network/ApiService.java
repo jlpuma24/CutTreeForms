@@ -2,6 +2,7 @@ package com.treecutforms.network;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -10,6 +11,9 @@ import retrofit2.http.Part;
  * Created by Usuario on 18/07/2016.
  */
 public interface ApiService {
+
+    @POST("login")
+    Call<GenericResponse> doLogin(@Body LoginRequest loginRequest);
 
     @Multipart
     @POST("store/data")
