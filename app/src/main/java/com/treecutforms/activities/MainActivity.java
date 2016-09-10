@@ -156,9 +156,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         ApiService apiService = retrofit.create(ApiService.class);
                         progressDialog.show();
 
-                        MultipartBody.Part afterPhoto = obtainPartImageData(new File(form.getAfterPhotoUrl()), REQUEST_AFTER_PHOTO);
-                        MultipartBody.Part beforePhoto = obtainPartImageData(new File(form.getBeforePhotoUrl()), REQUEST_BEFORE_PHOTO);
-                        MultipartBody.Part presentPhoto = obtainPartImageData(new File(form.getPresentPhotoUrl()), REQUEST_PRESENT_PHOTO);
+                        MultipartBody.Part afterPhoto = null, beforePhoto = null, presentPhoto = null;
+
+                        if (!form.getAfterPhotoUrl().isEmpty())
+                            afterPhoto = obtainPartImageData(new File(form.getAfterPhotoUrl()), REQUEST_AFTER_PHOTO);
+                        if (!form.getBeforePhotoUrl().isEmpty())
+                            beforePhoto = obtainPartImageData(new File(form.getBeforePhotoUrl()), REQUEST_BEFORE_PHOTO);
+                        if (!form.getPresentPhotoUrl().isEmpty())
+                            presentPhoto = obtainPartImageData(new File(form.getPresentPhotoUrl()), REQUEST_PRESENT_PHOTO);
 
                         apiService.doStoreImage(form.getForm().getBeforeImage(),
                                 form.getForm().getAfterImage(), form.getForm().getContrato(),

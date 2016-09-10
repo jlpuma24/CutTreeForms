@@ -331,10 +331,14 @@ public class FormActivity extends AppCompatActivity {
 
                                     HttpLoggingInterceptor interceptor;
                                     OkHttpClient client;
+                                    MultipartBody.Part afterPhoto = null, beforePhoto = null, presentPhoto = null;
 
-                                    MultipartBody.Part afterPhoto = obtainPartImageData(new File(PrefsUtil.getInstance().getAfterPhoto()), REQUEST_AFTER_PHOTO);
-                                    MultipartBody.Part beforePhoto = obtainPartImageData(new File(PrefsUtil.getInstance().getBeforePhoto()), REQUEST_BEFORE_PHOTO);
-                                    MultipartBody.Part presentPhoto = obtainPartImageData(new File(PrefsUtil.getInstance().getPresentPhoto()), REQUEST_PRESENT_PHOTO);
+                                    if (!PrefsUtil.getInstance().getAfterPhoto().isEmpty())
+                                        afterPhoto = obtainPartImageData(new File(PrefsUtil.getInstance().getAfterPhoto()), REQUEST_AFTER_PHOTO);
+                                    if (!PrefsUtil.getInstance().getBeforePhoto().isEmpty())
+                                        beforePhoto = obtainPartImageData(new File(PrefsUtil.getInstance().getBeforePhoto()), REQUEST_BEFORE_PHOTO);
+                                    if (!PrefsUtil.getInstance().getPresentPhoto().isEmpty())
+                                        presentPhoto = obtainPartImageData(new File(PrefsUtil.getInstance().getPresentPhoto()), REQUEST_PRESENT_PHOTO);
 
                                     interceptor = new HttpLoggingInterceptor();
                                     interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
