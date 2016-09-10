@@ -158,11 +158,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         MultipartBody.Part afterPhoto = null, beforePhoto = null, presentPhoto = null;
 
-                        if (!form.getAfterPhotoUrl().isEmpty())
+                        if (form.getAfterPhotoUrl().length() != 0)
                             afterPhoto = obtainPartImageData(new File(form.getAfterPhotoUrl()), REQUEST_AFTER_PHOTO);
-                        if (!form.getBeforePhotoUrl().isEmpty())
+                        if (form.getBeforePhotoUrl().length() != 0)
                             beforePhoto = obtainPartImageData(new File(form.getBeforePhotoUrl()), REQUEST_BEFORE_PHOTO);
-                        if (!form.getPresentPhotoUrl().isEmpty())
+                        if (form.getPresentPhotoUrl().length() != 0)
                             presentPhoto = obtainPartImageData(new File(form.getPresentPhotoUrl()), REQUEST_PRESENT_PHOTO);
 
                         apiService.doStoreImage(form.getForm().getBeforeImage(),
